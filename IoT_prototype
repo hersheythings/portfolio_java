@@ -1,0 +1,27 @@
+// Java 패키지 임포트하여 간단한 프로토타입 IoT 프로그램 제작
+
+import org.opentutorials.iot.Elevator;
+import org.opentutorials.iot.Lighting;
+import org.opentutorials.iot.Security;
+
+public class java_iot {
+    public static void main (String[] args) {
+
+        //1. Elevator Call : 엘리베이터 호출
+        Elevator myElevator = new Elevator("Java APT 309");
+        myElevator.callForUp(1);
+
+        //2. Security Off
+        Security mySecurity = new Security("Java APT 309")
+        mySecurity.off()
+
+        //3. Light On
+        Lightning hallLamp = new Lightning("Java APT 309" + "/Hall Lamp");
+        hallLamp.on();
+
+        Lightning floorLamp = new Lightning("Java APT 309" + "/Hall Lamp");
+        floorLamp.on();
+
+    }
+}
+
