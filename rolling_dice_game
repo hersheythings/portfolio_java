@@ -1,0 +1,47 @@
+package com.example.hiandroid;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+public class MainActivity extends AppCompatActivity {
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import java.util.Random;
+    public class MainActivity extends AppCompatActivity {
+        private TextView tv_result; // field 변수
+        private Button btn_button; // field 변수
+        @Override
+        protected void onCreate(Bundle savedInstanceState) { // 화면 생성시 자동실행 함수 (like main)
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            init();
+            btn_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // 1~6 까지 랜덤 숫자를 얻는다.
+                    Random dice = new Random();
+                    int result = dice.nextInt(6) + 1;
+                    // TextView에 표시한다.
+                    tv_result.setText(String.valueOf(result));
+                }
+            });
+        }
+        public void init() {
+            tv_result = (TextView) findViewById(R.id.tv_result);
+            btn_button = (Button) findViewById(R.id.btn_roll);
+        }
+    }
+
+/*
+[주사위 게임 메소드 관련 이해 사항]
+1) “아, 버튼을 클릭하는 액션을 정의하려면 OnClickListener가 필요하구나!”
+
+2) “activity_main.xml(layout file)에 정의한 뷰를 불러오려면 findViewById()를 사용하는구나~”
+
+3) “TextView의 글자를 바꾸려면 setText()를 사용하는구나!”
+*/
